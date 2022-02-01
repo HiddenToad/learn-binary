@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <style></style>
+    <title>learn binary</title>
+    <style>
+        *{
+            font-family: 'Lucida Console';
+            font-size: 50px;
+            position: absolute;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .binary{
+            top: 650px;
+        }
+        #eight{
+            left: 65px;
+        }
+        #four{
+            left: 190px;
+        }
+        #two{
+            left: 320px;
+        }
+        #one{
+            left: 447px;
+        }
+        #num-result{
+            width: 500px;
+            top: 400px;
+            left: 1050px;
+        }
+        #sum-result{
+            width: 500px;
+            top: 400px;
+            left: 550px;
+        }
+
+
+    </style>
+    <body>
+        <canvas id="canvas" width="501" height="651"></canvas>
+        <h1 class="binary" id="eight">0</h1>
+        <h1 class="binary" id="four">0</h1>
+        <h1 class="binary" id="two">0</h1>
+        <h1 class="binary" id="one">0</h1>
+        <h1 id="sum-result">= 0 + 0 + 0 + 0 </h1>
+        <h1 id="num-result">= 0</h1>
+        <script>
+
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            var eight = four = two = one = sum = 0;
+
+            function drawBoxes(){
+                var boxes = new Image();
+                boxes.src = 'background.png';
+                boxes.onload = function(){ctx.drawImage(boxes, 10, 10, 500, 650);}
+            }
+
+            function drawCircle(x, y, color){
+                ctx.beginPath();
+                ctx.fillStyle = color;
+                ctx.moveTo(x, y);
+                if(color == "black") ctx.arc(x, y, 20, 0, 2 * Math.PI);
+                else ctx.arc(x, y, 23, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+
+            function fillEight(color){
+                for(var i = 63; i < 650; i += 77.5){
+                    drawCircle(72, i, color);
+                }
+            }
+            function fillFour(color){
+                for(var i = 373; i < 650; i += 77.5){
+                    drawCircle(199, i, color);
+                }
+            }
+            function fillTwo(color){
+                for(var i = 530; i < 650; i += 77.5){
+                    drawCircle(325, i, color);
+                }
+            }
+            function fillOne(color){
+                drawCircle(455, 609, color);
+            }
+
+            function updateSum(){
+                document.getElementById("sum-result").innerText = `= ${eight} + ${four} + ${two} + ${one}`;
+                document.getElementById("num-result").innerText = `= ${eight+four+two+one}`;
+            }
+            
+
+            document.getElementById("eight").onclick = function(){ this.innerText = this.innerText == "1" ? "0" : "1"; fillEight(this.innerText == "1" ? "black" : "white"); eight = this.innerText == 1 ? 8 : 0; updateSum()}
+            document.getElementById("four").onclick = function(){ this.innerText = this.innerText == "1" ? "0" : "1"; fillFour(this.innerText == "1" ? "black" : "white"); four = this.innerText == 1 ? 4 : 0; updateSum()}
+            document.getElementById("two").onclick = function(){ this.innerText = this.innerText == "1" ? "0" : "1"; fillTwo(this.innerText == "1" ? "black" : "white"); two = this.innerText == 1 ? 2 : 0; updateSum()}
+            document.getElementById("one").onclick = function(){ this.innerText = this.innerText == "1" ? "0" : "1"; fillOne(this.innerText == "1" ? "black" : "white"); one = this.innerText == 1 ? 1 : 0; updateSum()}
+
+
+
+
+
+
+
+            //run all
+            drawBoxes();
+            
+            
+        </script>
+    </body>
+</html>
