@@ -30,9 +30,16 @@
             left: 445px;
         }
         #result{
-            width: 300px;
+            width: 500px;
             top: 400px;
             left: 530px;
+        }
+        #directions{
+            width: 800px;
+            font-size: 40px;
+            left: 200px;
+            z-index: 1000;
+
         }
         @media (pointer:none), (pointer:coarse){
             *{
@@ -45,13 +52,13 @@
 
     </style>
     <body>
+        <h1 id="directions">Click the numbers below the below the boxes to flip that bit!</h1>
         <canvas id="canvas" width="501" height="651"></canvas>
         <h1 class="binary" id="eight">0</h1>
         <h1 class="binary" id="four">0</h1>
         <h1 class="binary" id="two">0</h1>
         <h1 class="binary" id="one">0</h1>
-        <pre><h1 id="result">= 0 + 0 + 0 + 0 
-        = 0</h1></pre>
+        <h1 id="result">= 0 + 0 + 0 + 0 = 0</h1>
         <script>
 
             var canvas = document.getElementById("canvas");
