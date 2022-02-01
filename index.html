@@ -30,28 +30,12 @@
         #one{
             left: 447px;
         }
-        #num-result{
-            width: 500px;
-            top: 400px;
-            left: 1050px;
-        }
-        #sum-result{
+        #result{
             width: 500px;
             top: 400px;
             left: 550px;
         }
-        @media only screen and (max-width: 600px){
-            #sum-result{
-                left: 510px !important;   
-            }
-            #num-result{
-                top: 520px !important;
-                left: 510px !important;
-            }
-            *{
-                font-size: 40px !important;
-            }
-        }
+       
 
 
     </style>
@@ -61,8 +45,7 @@
         <h1 class="binary" id="four">0</h1>
         <h1 class="binary" id="two">0</h1>
         <h1 class="binary" id="one">0</h1>
-        <h1 id="sum-result">= 0 + 0 + 0 + 0</h1>
-        <h1 id="num-result">= 0</h1>
+        <h1 id="result">= 0 + 0 + 0 + 0 = 0</h1>
         <script>
 
             var canvas = document.getElementById("canvas");
@@ -104,8 +87,7 @@
             }
 
             function updateSum(){
-                document.getElementById("sum-result").innerText = `= ${eight} + ${four} + ${two} + ${one}`;
-                document.getElementById("num-result").innerText = `= ${eight+four+two+one}`;
+                document.getElementById("result").innerText = `= ${eight} + ${four} + ${two} + ${one} = ${eight+four+two+one}`;
             }
             
 
